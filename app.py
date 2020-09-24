@@ -2,6 +2,38 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    # return "<h1>Welcome to our server !!</h1>"
+    return render_template('home.html')
+
+
+@app.route('/resume')
+def resume():
+    return render_template('resume.html')  
+
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html') 
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html') 
+
+
+
+@app.route('/headline')
+def headline():
+    return render_template('headline.html') 
+    
+    
+@app.route('/caption')
+def caption():
+    return render_template('caption.html') 
+
+
 @app.route('/getmsg', methods=['GET'])
 def respond():
     # retrieve the name from url parameter
@@ -42,12 +74,6 @@ def post_something():
             "ERROR": "no name found, please send a name."
         })
 
-
-# a welcome message to test our server
-@app.route('/')
-def index():
-    return "<h1>Welcome to our server !!</h1>"
-    # return render_template('home.html')
 
 
 if __name__=='__main__':

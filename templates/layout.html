@@ -1,0 +1,80 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>My ePortfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" /> -->
+
+<script type="text/javascript" src="/static/js/bootstrap-tooltip.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% include 'includes/_navbar.html' %}
+
+    <div class="container">
+        <!-- {% include 'includes/_messages.html' %} -->
+        
+        {% block body %}{% endblock %}
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <div style="height:111px;">
+                <table>
+                    <tr>
+                    <td style="vertical-align: top; padding-left: 20px;padding-right: 10px;">
+                        <h5>STAY CONNECTED</h5>
+                        <a href="https://twitter.com/denglh" target="_extern">
+                            <i class="fa fa-twitter" style="font-size:20px;"></i>
+                        </a>
+                        <a href="facebook.com/denglihua1990" target="_extern">
+                            <i class="fa fa-facebook" style="font-size:20px;"></i>
+                        </a>
+                        <a href="https://github.com/dlhlisa">
+                            <i class="fa fa-github" style="font-size:20px;"></i>
+                        </a>
+                    </td>
+                    <td style="vertical-align: top; padding-left: 10px;padding-right: 10px;">
+                        <h5>ABOUT</h5>
+                        <a href="/about">About Me</a><br/>
+                        <!-- <a href="/about/developers.html">Development team</a><br/>
+                        <a href="/about/software.html">Used software</a><br/>
+                        <a href="/about/legal.html">Legal notice</a><br/> -->
+        
+                    </td>
+                    
+                    <td style="vertical-align: top; padding-left: 10px;padding-right: 10px;">
+                        <h5>QUICK NAVIGATION</h5>
+                        <a href="/resume">Resume</a><br/>
+                        <a href="/blog">Blog</a>
+        
+                    </td>
+                    </tr>
+                </table>
+            </div>      
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    
+    <!-- <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script> -->
+    <!-- <script src="//cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script> -->
+
+    <!-- <script type="text/javascript">
+        CKEDITOR.replace('editor');
+        
+    </script> -->
+</body>
+</html>

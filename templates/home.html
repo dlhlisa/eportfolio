@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends 'layout.html' %}
 
-<h1>My First Heading</h1>
+{% block body %}
 
-<p>My first paragraph.</p>
+<div class="jumbotro text-center">
+    <h1>Wecome to my ePortfolio!</h1>
+    <p class="lead">This application is built using the <a href="https://www.python.org/">Python</a><a href="https://flask.palletsprojects.com/en/1.1.x/"> Flask framework</a> and deployed on <a href="https://www.heroku.com/">Heroku</a>.</p>
+    <!-- {% if session.logged_in == NULL %}
+        <a href="/register" class="btn btn-primary btn-lg">Register</a>
+        <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% endif %} -->
+</div>
+<div>
+    <img src="/static/images/IMG_20180826_131546.jpg" alt="" width=100% height=100%>
+</div>
 
-</body>
-</html>
+{% endblock %}
