@@ -1,6 +1,8 @@
 # eportfolio
 ePortfolio assignments for course "Notifications Build Your Professional ePortfolio in English".
 
+https://eportfolioapp.herokuapp.com/
+
 ## Build your local app
 
 ## Deploy on Heroku
