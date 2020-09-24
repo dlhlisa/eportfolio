@@ -46,7 +46,8 @@ def post_something():
 # a welcome message to test our server
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return "<h1>Welcome to our server !!</h1>"
+    # return render_template('home.html')
 
 
 if __name__=='__main__':
