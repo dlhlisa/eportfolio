@@ -13,6 +13,11 @@ def resume():
     return render_template('resume.html')  
 
 
+@app.route('/skill')
+def skill():
+    return render_template('skill.html') 
+
+
 @app.route('/blog')
 def blog():
     return render_template('blog.html') 
