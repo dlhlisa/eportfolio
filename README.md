@@ -1,5 +1,5 @@
 # eportfolio
-ePortfolio assignments for course "Notifications Build Your Professional ePortfolio in English".
+ePortfolio assignments for course "Build Your Professional ePortfolio in English".
 
 https://eportfolioapp.herokuapp.com/
 
