@@ -1,6 +1,20 @@
 from flask import Flask, render_template, request, jsonify
+from mlmodels import *
+from wtforms import Form, TextAreaField, StringField, validators
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
+
+# config mysql
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = os.environ['DB_PASS']
+app.config['MYSQL_DB'] = 'mlflaskapp'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+# init MYSQL
+mysql = MySQL(app)
+
 
 @app.route('/')
 def index():
@@ -28,15 +42,64 @@ def about():
     return render_template('about.html') 
 
 
-
-@app.route('/headline')
+@app.route('/blogs/headline')
 def headline():
-    return render_template('headline.html') 
+    return render_template('/blogs/headline.html') 
     
     
-@app.route('/caption')
+@app.route('/blogs/caption')
 def caption():
-    return render_template('caption.html') 
+    return render_template('/blogs/caption.html') 
+
+
+@app.route('/interests/cadd')
+def cadd():
+    return render_template('/interests/cadd.html') 
+    
+
+class ReviewForm(Form):
+    moviereview = TextAreaField('', [validators.DataRequired(), validators.length(min=15)])
+   
+@app.route('/interests/mlmodels')
+def mlmodels():
+    return render_template('/interests/mlmodels.html') 
+
+# ml_app
+@app.route('/interests/mlmodels/msclf')
+def msclf():
+    form = ReviewForm(request.form)
+    return render_template('/interests/mlmodels/moviesentimentclassifier.html', form=form)
+
+
+@app.route('/interests/mlmodels/msclf_results', methods=['POST'])
+def msclf_results():
+    form = ReviewForm(request.form)
+    if request.method == 'POST' and form.validate():
+        review = request.form['moviereview']
+        y, proba = classify(review)
+        return render_template('/interests/mlmodels/results.html', content=review, prediction=y, probability=round(proba*100, 2))
+    return render_template('/interests/mlmodels/moviesentimentclassifier.html', form=form)
+
+
+
+@app.route('/interests/mlmodels/msclf_thanks', methods=['POST'])
+def msclf_thanks():
+    # username = request.form['username']
+    feedback = request.form['feedback_button']
+    review = request.form['review']
+    prediction = request.form['prediction']
+    inv_label = {'negative':0, 'positive':1}
+    y = inv_label[prediction]
+    if feedback == ' Incorrect':
+        y = int(not(y))
+    train(review, y)
+    sqlite_entry(review, y)
+    return render_template('/interests/mlmodels/thanks.html')
+
+
+@app.route('/interests/dataanalysis')
+def dataanalysis():
+    return render_template('/interests/dataanalysis.html') 
 
 
 @app.route('/getmsg', methods=['GET'])

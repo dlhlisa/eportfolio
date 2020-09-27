@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1> Movie semtiment classifier </h1>
+
+<h3>Please enter your movie review:</h3>
+
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="/interests/mlmodels/msclf_results">
+		<dl>
+		{{ render_field(form.moviereview, cols='30', rows='10') }}
+		</dl>
+		<div>
+			<input type="submit" value='Submit review' name='submit_btn'>
+		</div>
+	</form>
+
+{% endblock %}
