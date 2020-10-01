@@ -3,12 +3,21 @@
 {% block body %}
 
 <h1> My Blogs </h1>
-<p><a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Build your professional ePortfolio in English Course Assignments</a></p>
-<div class="collapse" id="collapseExample">
+<p><a data-toggle="collapse" data-target="#collapseExample1" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Build your professional ePortfolio in English Course Assignments</a></p>
+<div class="collapse" id="collapseExample1">
 <ul>Week One: <a href="/blogs/headline">Add a Headline & Summary to Your ePortfolio</a></ul>
 <ul>Week Two: <a href="/blogs/caption">Write Captions and Descriptions about Your Work</a></ul>
 <ul>Week Three: <a href="/resume">Share Your Resume</a></ul>
 <ul>Week Four: <a href="/">Compare & Reflect on Your ePortfolio</a></ul>
+</div>
+
+<p><a data-toggle="collapse" data-target="#collapseExample2" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Test Blogs</a></p>
+<div class="collapse" id="collapseExample2">
+<ul class='list-group'>
+    {% for blog in blogs %}
+        <li class="list-group-item"><a href="blogs/{{blog.id}}"> {{blog.title}} </a></li> 
+    {% endfor %}
+</ul>
 </div>
 
 
