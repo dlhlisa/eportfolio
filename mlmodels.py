@@ -3,10 +3,12 @@ import pickle
 
 import numpy as np
 # from flask_mysqldb import MySQL
-from app import mysql
+# from app import mysql
+import psycopg2
 
 from vectorizer import vect
 
+conn_string = "dbname='mlflaskapp' user='postgres' host='localhost' port='5432'" + ' password=' + os.environ['PG_PASS']
 
 # Preparing the Classifier
 cur_dir = os.path.dirname(__file__)
@@ -33,13 +35,16 @@ def train(document, y):
 def sqlite_entry(document, y):
     # username = request.form['username']
     # create cursor
-    cur = mysql.connection.cursor()
+    conn = psycopg2.connect(conn_string)
+    cur = conn.cursor()
+    # cur = mysql.connection.cursor()
 
     # insert new reviews DB
     cur.execute("insert into reviews (review, sentiment) values(%s, %s)", (document, y))
 
     # commit DB
-    mysql.connection.commit()
+    # mysql.connection.commit()
+    conn.commit()
 
     # close connection
     cur.close()
