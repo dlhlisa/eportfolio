@@ -276,6 +276,12 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
+# VSCode
+.vscode/
+
+# removing local database name & password dependency
+config.py
+
 __pycache__
 
 # REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
