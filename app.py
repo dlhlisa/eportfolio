@@ -479,4 +479,4 @@ def post_something():
 if __name__=='__main__':
     # Threaded option to enable multiple instances for multiple user access support
     app.secret_key='secretkey for mlflaskapp'
-    app.run(threaded=True, port=5000, debug=True)
+    app.run(threaded=True, debug=True)
