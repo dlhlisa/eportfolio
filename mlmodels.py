@@ -5,7 +5,7 @@ import numpy as np
 # from flask_mysqldb import MySQL
 # from app import mysql
 import psycopg2
-import urlparse
+import urllib.parse
 
 from vectorizer import vect
 

@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 import psycopg2, psycopg2.extras
 
 from passlib.hash import sha256_crypt
-import urlparse
+import urllib.parse
 
 from functools import wraps
 
