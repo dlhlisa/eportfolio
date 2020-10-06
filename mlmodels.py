@@ -5,10 +5,18 @@ import numpy as np
 # from flask_mysqldb import MySQL
 # from app import mysql
 import psycopg2
+import urlparse
 
 from vectorizer import vect
 
-conn_string = "dbname='mlflaskapp' user='postgres' host='localhost' port='5432'" + ' password=' + os.environ['PG_PASS']
+# conn_string = "dbname='mlflaskapp' user='postgres' host='localhost' port='5432'" + ' password=' + os.environ['PG_PASS']
+url = urlparse.urlparse(os.environ.get('DATABASE_URL'))
+db = "dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname)
+# schema = "schema.sql"
+# conn = psycopg2.connect(db)
+
+DB_URL = url
+conn_string = db
 
 # Preparing the Classifier
 cur_dir = os.path.dirname(__file__)

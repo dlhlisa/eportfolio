@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 import psycopg2, psycopg2.extras
 
 from passlib.hash import sha256_crypt
+import urlparse
 
 from functools import wraps
 
@@ -44,7 +45,13 @@ class Config:
 
 # DB_URL = 'postgresql://{user}:{pw}@{url}/{db}'.format(user=Config.POSTGRES_USER,pw=Config.POSTGRES_PW,url=Config.POSTGRES_URL,db=Config.POSTGRES_DB)
 # DB_URL = 'postgresql+psycopg2://{user}:{pw}@{host}/{db}'.format(user=Config.POSTGRES_USER,pw=Config.POSTGRES_PW,host=Config.POSTGRES_HOST,db=Config.POSTGRES_DB)
-DB_URL = "postgres://kwppdvdhvctmcx:7024c8a827467fc3e7049d5cb6ab4d059f006b6530b58d2cff657bc0e38f9158@ec2-34-251-118-151.eu-west-1.compute.amazonaws.com:5432/dend93jkladuos"
+
+url = urlparse.urlparse(os.environ.get('DATABASE_URL'))
+db = "dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname)
+# schema = "schema.sql"
+# conn = psycopg2.connect(db)
+
+DB_URL = url
 
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # silence the deprecation warning
@@ -55,7 +62,7 @@ db = SQLAlchemy(app)
 
 # # connect to an existing database: conn = psycopg2.connect("dbname='mlflaskapp' user='postgres' password='password' host='localhost' port='5432'")
 # conn_string = "dbname='mlflaskapp' user='postgres' host='localhost' port='5432'" + ' password=' + os.environ['PG_PASS']
-conn_string = "dbname=dend93jkladuos host=ec2-34-251-118-151.eu-west-1.compute.amazonaws.com port=5432 user=kwppdvdhvctmcx password=7024c8a827467fc3e7049d5cb6ab4d059f006b6530b58d2cff657bc0e38f9158 sslmode=require"
+conn_string = db
 # conn = psycopg2.connect(conn_string)
 # # open a cursor to perform database operations
 # cur = conn.cursor() # ur = conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
