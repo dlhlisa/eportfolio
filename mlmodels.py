@@ -5,13 +5,13 @@ import numpy as np
 # from flask_mysqldb import MySQL
 # from app import mysql
 import psycopg2
-import urllib.parse
+from urllib.parse import urlparse
 
 from vectorizer import vect
 
 # conn_string = "dbname='mlflaskapp' user='postgres' host='localhost' port='5432'" + ' password=' + os.environ['PG_PASS']
-url = urlparse.urlparse(os.environ.get('DATABASE_URL'))
-db = "dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname)
+url = urlparse(os.environ.get('DATABASE_URL'))
+db = "dbname=%s user=%s password=%s host=%s port=%s" % (url.path[1:], url.username, url.password, url.hostname, url.port)
 # schema = "schema.sql"
 # conn = psycopg2.connect(db)
 
