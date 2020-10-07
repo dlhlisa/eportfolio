@@ -47,7 +47,7 @@ app = Flask(__name__)
 # DB_URL = 'postgresql+psycopg2://{user}:{pw}@{host}/{db}'.format(user=Config.POSTGRES_USER,pw=Config.POSTGRES_PW,host=Config.POSTGRES_HOST,db=Config.POSTGRES_DB)
 
 url = urlparse(os.environ.get('DATABASE_URL'))
-db = "dbname=%s user=%s password=%s host=%s port=%s " % (url.path[1:], url.username, url.password, url.hostname, url.port)
+conn_string = "dbname=%s user=%s password=%s host=%s port=%s " % (url.path[1:], url.username, url.password, url.hostname, url.port)
 # schema = "schema.sql"
 # conn = psycopg2.connect(db)
 
@@ -62,7 +62,7 @@ db = SQLAlchemy(app)
 
 # # connect to an existing database: conn = psycopg2.connect("dbname='mlflaskapp' user='postgres' password='password' host='localhost' port='5432'")
 # conn_string = "dbname='mlflaskapp' user='postgres' host='localhost' port='5432'" + ' password=' + os.environ['PG_PASS']
-conn_string = db
+
 # conn = psycopg2.connect(conn_string)
 # # open a cursor to perform database operations
 # cur = conn.cursor() # ur = conn.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
