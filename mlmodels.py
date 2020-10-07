@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 from vectorizer import vect
 
 # conn_string = "dbname='mlflaskapp' user='postgres' host='localhost' port='5432'" + ' password=' + os.environ['PG_PASS']
-url = urlparse(os.environ.get('DATABASE_URL'))
+url = urlparse(os.environ['DATABASE_URL'])
 conn_string = "dbname=%s user=%s password=%s host=%s port=%s" % (url.path[1:], url.username, url.password, url.hostname, url.port)
 # schema = "schema.sql"
 # conn = psycopg2.connect(db)

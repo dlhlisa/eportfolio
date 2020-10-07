@@ -46,7 +46,7 @@ app = Flask(__name__)
 # DB_URL = 'postgresql://{user}:{pw}@{url}/{db}'.format(user=Config.POSTGRES_USER,pw=Config.POSTGRES_PW,url=Config.POSTGRES_URL,db=Config.POSTGRES_DB)
 # DB_URL = 'postgresql+psycopg2://{user}:{pw}@{host}/{db}'.format(user=Config.POSTGRES_USER,pw=Config.POSTGRES_PW,host=Config.POSTGRES_HOST,db=Config.POSTGRES_DB)
 
-url = urlparse(os.environ.get('DATABASE_URL'))
+url = urlparse(os.environ['DATABASE_URL'])
 conn_string = "dbname=%s user=%s password=%s host=%s port=%s " % (url.path[1:], url.username, url.password, url.hostname, url.port)
 # schema = "schema.sql"
 # conn = psycopg2.connect(db)
