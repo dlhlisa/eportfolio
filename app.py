@@ -33,15 +33,15 @@ app = Flask(__name__)
 # app.config['POSTGRES_DB'] = 'mlflaskapp'
 
 # config postgresql
-class Config:
-    POSTGRES_USER = 'postgres'
-    POSTGRES_PW = os.environ['PG_PASS']
-    POSTGRES_HOST = '127.0.0.1:5432'
-    POSTGRES_DB = 'mlflaskapp'
+# class Config:
+#     POSTGRES_USER = 'postgres'
+#     POSTGRES_PW = os.environ['PG_PASS']
+#     POSTGRES_HOST = '127.0.0.1:5432'
+#     POSTGRES_DB = 'mlflaskapp'
 
-    @staticmethod
-    def init_app(app):
-        pass
+#     @staticmethod
+#     def init_app(app):
+#         pass
 
 # DB_URL = 'postgresql://{user}:{pw}@{url}/{db}'.format(user=Config.POSTGRES_USER,pw=Config.POSTGRES_PW,url=Config.POSTGRES_URL,db=Config.POSTGRES_DB)
 # DB_URL = 'postgresql+psycopg2://{user}:{pw}@{host}/{db}'.format(user=Config.POSTGRES_USER,pw=Config.POSTGRES_PW,host=Config.POSTGRES_HOST,db=Config.POSTGRES_DB)
