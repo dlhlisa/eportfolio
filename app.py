@@ -87,7 +87,7 @@ class RegisterForm(Form):
 
 
 # user register
-@app.route('/register', methods=['GET','POST'])
+@app.route('/register', methods=['POST', 'GET'])
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
