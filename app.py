@@ -206,6 +206,7 @@ def dashboard():
     else:
         msg = 'No Blogs Found'
         return render_template('dashboard.html', msg=msg)
+    cur.close()
 
 
 # blogs from class
@@ -278,7 +279,6 @@ def add_blog():
         cur.close()
 
         flash('Blog Created', 'success')
-
         return redirect(url_for('dashboard'))
     return render_template('add_blog.html', form=form)
 
