@@ -119,7 +119,7 @@ def register():
 
 
 # user login
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
         # get form fields
