@@ -450,7 +450,7 @@ def respond():
     print(f'got name {name}')
 
     response = {}
-
+    
     # check if the user sent a name at all
     if not name:
         response['ERROR'] = 'no name found, please send a name.'
