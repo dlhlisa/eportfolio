@@ -382,8 +382,13 @@ def headline():
     
     
 @app.route('/blogs/caption')
-def caption():
+def self_reflection():
     return render_template('/blogs/caption.html') 
+
+
+@app.route('/blogs/self_reflection')
+def caption():
+    return render_template('/blogs/self_reflection.html') 
 
 
 @app.route('/interests/cadd')

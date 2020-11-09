@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1> Recording a Self-reflection </h1>
+<h3>The audio</h3>
+
+<figure>
+    <figcaption>Listen to the audio:</figcaption>
+    <audio
+        controls
+        src="../static/media/introduction.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+</figure>
+
+<h3>The audio self-reflection</h3>
+
+<figure>
+    <figcaption>Listen to the self-reflection:</figcaption>
+    <audio
+        controls
+        src="../static/media/self-reflection.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+</figure>
+
+
+{% endblock %}
