@@ -446,6 +446,21 @@ def others():
     return render_template('/interests/others.html')
 
 
+@app.route('/interests/others/neckvertebra_exercise')
+def neckvertebra_exercise():
+    return render_template('/interests/others/neckvertebra_exercise.html')
+
+
+@app.route('/interests/others/eye_exercise')
+def eye_exercise():
+    return render_template('/interests/others/eye_exercise.html')
+
+
+@app.route('/interests/others/gymnastics_exercise')
+def gymnastics_exercise():
+    return render_template('/interests/others/gymnastics_exercise.html')
+
+
 @app.route('/getmsg', methods=['GET'])
 def respond():
     # retrieve the name from url parameter
